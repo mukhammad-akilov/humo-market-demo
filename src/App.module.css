@@ -1,0 +1,34 @@
+.main {
+    padding: 50px 15px;
+}
+
+.counterAnimationContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 2000px;
+    margin: auto;
+    align-items: center;
+}
+
+.counterAnimationContainer .countdownContainer .title {
+    font-size: 1.8rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 0;
+}
+
+@media only screen and (min-width: 500px) {
+    .counterAnimationContainer .countdownContainer .title {
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .counterAnimationContainer{
+        grid-template-columns: 1fr 1fr;
+    }
+}
