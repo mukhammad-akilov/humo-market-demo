@@ -13,8 +13,10 @@ const  App = () => {
 
    useEffect(() => {
        if(acceptAudio) {
-           const audioStream = new Audio(introMusic);
+           const audioStream = new Audio();
+           audioStream.src = introMusic;
            audioStream.loop = true;
+           audioStream.autoplay = true;
            audioStream.play();
        }
    }, [acceptAudio]);
