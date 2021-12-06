@@ -11,15 +11,35 @@ const  App = () => {
    const [date, setDate] = useState("");
    const [acceptAudio, setAcceptAudio] = useState(false);
 
+    useEffect(() => {
+        const  unlockAudio = () => {
+            const sound = new Audio(introMusic);
+
+            sound.play();
+            sound.pause();
+            sound.currentTime = 0;
+
+            document.body.removeEventListener('click', unlockAudio)
+            document.body.removeEventListener('touchstart', unlockAudio)
+        }
+
+        document.body.addEventListener('click', unlockAudio);
+        document.body.addEventListener('touchstart', unlockAudio);
+    }, []);
+
    useEffect(() => {
        if(acceptAudio) {
            // const audioStream = new Audio(introMusic);
            // audioStream.loop = true;
            // audioStream.play();
-           const audioStream = new Audio();
-           audioStream.autoplay = true;
-           audioStream.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
-           audioStream.src = introMusic;
+           // Handle audio play problem in Apple browser
+           const audioStream = new Audio(introMusic);
+           audioStream.loop = true;
+           const promiseAudioStream = audioStream.play();
+
+           if (promiseAudioStream !== undefined) {
+               promiseAudioStream.then(() => {}).catch(error => console.error);
+           }
        }
    }, [acceptAudio]);
 
