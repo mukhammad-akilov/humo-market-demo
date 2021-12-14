@@ -8,7 +8,6 @@ import ConfirmAudioModal from "./components/ConfirmAutdioModal/ConfirmAudioModal
 import CountDownTimer from "./components/CountDownTimer/CountDownTimer";
 
 const  App = () => {
-   const [date, setDate] = useState("");
    const [acceptAudio, setAcceptAudio] = useState(false);
 
     // Handle audio play problem in Apple browser
@@ -45,7 +44,7 @@ const  App = () => {
 
    return (
         <main className={styles.main}>
-            <h1 className={styles.title}>Хумо Маркет Demo Day</h1>
+            <h1 className={styles.title}>Secret Project Demo Day</h1>
             <div className={styles.counterAnimationContainer}>
                 <div className={styles.countdownContainer}>
                     <h3 className={styles.title}>До начала демо осталось:</h3>
