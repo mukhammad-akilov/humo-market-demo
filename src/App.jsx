@@ -44,7 +44,7 @@ const  App = () => {
 
    return (
         <main className={styles.main}>
-            <h1 className={styles.title}>Secret Project Demo Day</h1>
+            <h1 className={styles.title}>Хумо Маркет Demo Day</h1>
             <div className={styles.counterAnimationContainer}>
                 <div className={styles.countdownContainer}>
                     <h3 className={styles.title}>До начала демо осталось:</h3>
