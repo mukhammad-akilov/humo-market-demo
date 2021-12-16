@@ -67,7 +67,7 @@ const  App = () => {
           <ConfirmAudioModal
               open={!acceptAudio}
               // onClose={() => {unlockAudio(); setAcceptAudio(true);}}
-              onClose={() => {unlockAudio(); setAcceptAudio(true);}}
+              onClose={() => {setAcceptAudio(true);}}
           />
         </main>
    );
