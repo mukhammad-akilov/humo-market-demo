@@ -43,7 +43,13 @@ const  App = () => {
 
            // Setup the new Howl.
            const sound = new Howl({
-               src: [introMusic]
+               src: [introMusic],
+               loop: true,
+               onplayerror: function() {
+                   sound.once('unlock', function() {
+                       sound.play();
+                   });
+               }
            });
 
            // Play the sound.
