@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import {differenceInSeconds} from "date-fns";
 import styles from "./CoundDown.module.css";
 
-const demoDayDate= new Date(2022, 11, 15, 15, 18, 0);
+const demoDayDate= new Date(2022, 6, 15, 15, 18, 0);
 
 const CountDownTimer = ({open, ...props}) => {
     const [secondsDiffer, setSecondsDiffer] = useState("");
