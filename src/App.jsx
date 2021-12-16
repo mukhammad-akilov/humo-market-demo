@@ -28,34 +28,50 @@ const  App = () => {
     //     document.body.addEventListener('touchstart', unlockAudio);
     // }, []);
 
-   useEffect(() => {
-       if(acceptAudio) {
-           // // const audioStream = new Audio(introMusic);
-           // // audioStream.loop = true;
-           // // audioStream.play();
-           // const audioStream = new Audio(introMusic);
-           // audioStream.loop = true;
-           // const promiseAudioStream = audioStream.play();
-           //
-           // if (promiseAudioStream !== undefined) {
-           //     promiseAudioStream.then(() => {}).catch(error => console.error);
-           // }
+   // useEffect(() => {
+   //     if(acceptAudio) {
+   //         // // const audioStream = new Audio(introMusic);
+   //         // // audioStream.loop = true;
+   //         // // audioStream.play();
+   //         // const audioStream = new Audio(introMusic);
+   //         // audioStream.loop = true;
+   //         // const promiseAudioStream = audioStream.play();
+   //         //
+   //         // if (promiseAudioStream !== undefined) {
+   //         //     promiseAudioStream.then(() => {}).catch(error => console.error);
+   //         // }
+   //
+   //         // Setup the new Howl.
+   //         const sound = new Howl({
+   //             src: [introMusic],
+   //             loop: true,
+   //             onplayerror: function() {
+   //                 sound.once('unlock', function() {
+   //                     sound.play();
+   //                 });
+   //             }
+   //         });
+   //
+   //         // Play the sound.
+   //         sound.play();
+   //     }
+   // }, [acceptAudio]);
 
-           // Setup the new Howl.
-           const sound = new Howl({
-               src: [introMusic],
-               loop: true,
-               onplayerror: function() {
-                   sound.once('unlock', function() {
-                       sound.play();
-                   });
-               }
-           });
+    useEffect(() => {
+            // Setup the new Howl.
+            const sound = new Howl({
+                src: [introMusic],
+                loop: true,
+                onplayerror: function() {
+                    sound.once('unlock', function() {
+                        sound.play();
+                    });
+                }
+            });
 
-           // Play the sound.
-           sound.play();
-       }
-   }, [acceptAudio]);
+            // Play the sound.
+            sound.play();
+    }, []);
 
    return (
         <main className={styles.main}>
